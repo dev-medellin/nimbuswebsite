@@ -1,4 +1,6 @@
 import Link from "next/link";
 import { getWikiArticles } from "../../../lib/services";
 import { PageIntro, Panel, SiteShell } from "../../../components/SiteShell";
+import { wikiCategories } from "../../../data/mock";
+export function generateStaticParams() { return wikiCategories.map((category) => ({ category: category.toLowerCase().replaceAll(" ", "-") })); }
 export default async function WikiCategoryPage({ params }: { params: { category: string } }) { const articles = (await getWikiArticles()).filter((article) => article.category.toLowerCase().replaceAll(" ", "-") === params.category); return <SiteShell><PageIntro eyebrow="Wiki category" title={params.category.replaceAll("-", " ")} /><main className="content-grid"><Panel>{articles.length ? articles.map((article) => <div className="article-row" key={article.slug}><h2>{article.title}</h2><p className="muted">{article.excerpt}</p><Link className="link" href={`/wiki/${params.category}/${article.slug}`}>Read article →</Link></div>) : <p>No guides have been added here yet. Check back after the next expedition.</p>}</Panel></main></SiteShell>; }
