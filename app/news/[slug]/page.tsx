@@ -1,0 +1,4 @@
+import Link from "next/link";
+import { getNews } from "../../../lib/services";
+import { PageIntro, Panel, SiteShell } from "../../../components/SiteShell";
+export default async function NewsArticlePage({ params }: { params: { slug: string } }) { const item = (await getNews()).find((entry) => entry.slug === params.slug); if (!item) return <SiteShell><PageIntro eyebrow="News" title="Announcement not found" /></SiteShell>; return <SiteShell><PageIntro eyebrow={`${item.category} · ${item.date}`} title={item.title}>{item.excerpt}</PageIntro><main className="article"><Panel><p>Champions of Nimbus, the road ahead is clear. Our community continues to shape a classic world where patience, teamwork, and skill matter. Watch this space for the next field report.</p><Link className="link" href="/news">← All announcements</Link></Panel></main></SiteShell>; }
