@@ -1,0 +1,27 @@
+<svg width="300" height="60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="btnGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#556b2f;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3e4f1c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2b360f;stop-opacity:1" />
+    </linearGradient>
+    
+    <pattern id="texture" patternUnits="userSpaceOnUse" width="20" height="20">
+      <rect width="20" height="20" fill="#3e4f1c"/>
+      <path d="M0,0 L20,20 M20,0 L0,20" stroke="#1f260a" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="300" height="60" rx="8" fill="url(#btnGrad)"/>
+  
+  <!-- Texture -->
+  <rect width="300" height="60" rx="8" fill="url(#texture)"/>
+  
+  <!-- Border -->
+  <rect x="2" y="2" width="296" height="56" rx="6"
+        fill="none"
+        stroke="#c2b280"
+        stroke-width="2"
+        opacity="0.6"/>
+</svg>
