@@ -1,0 +1,5 @@
+import Link from "next/link";
+
+export default function PaypalFailedPage() {
+  return <main className="flex min-h-screen items-center justify-center bg-[#08151d] px-6 py-16 text-[#f8e9bc]"><section className="w-full max-w-xl border-2 border-[#b28a4e] bg-[#142b39] p-8 text-center shadow-[8px_8px_0_#071017]"><p className="text-xs font-bold uppercase tracking-[.2em] text-[#e3a4a0]">PayPal payment</p><h1 className="mt-3 font-fantasy text-4xl">Payment cancelled</h1><p className="mx-auto mt-5 max-w-md text-sm leading-7 text-[#c8d0d8]">No payment was confirmed. Your account has not been credited. You can return to the shop and try again whenever you are ready.</p><div className="mt-8 flex flex-wrap justify-center gap-3"><Link href="/shop" className="bg-[#f4ca55] px-5 py-3 text-xs font-bold uppercase tracking-[.12em] text-[#263652]">Return to shop</Link><Link href="/account" className="border border-[#b28a4e] px-5 py-3 text-xs font-bold uppercase tracking-[.12em] text-[#f8e9bc]">Open account</Link></div></section></main>;
+}

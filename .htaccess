@@ -3,17 +3,16 @@ Options -MultiViews
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Serve the static export from public_html/out without exposing that folder.
-  RewriteRule ^$ out/index.html [L]
+  # Route API requests to Laravel before the website fallback.
+  RewriteRule ^api(?:/.*)?$ api/public/index.php [END]
 
-  # Preserve files and directories that exist in the exported site, including _next assets.
-  RewriteCond %{DOCUMENT_ROOT}/out/$1 -f [OR]
-  RewriteCond %{DOCUMENT_ROOT}/out/$1 -d
-  RewriteRule ^(.+?)/?$ out/$1 [L]
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
 
-  # Resolve static-export routes such as /wiki/maps/ to their index.html files.
-  RewriteCond %{DOCUMENT_ROOT}/out/$1/index.html -f
-  RewriteRule ^(.+?)/?$ out/$1/index.html [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+?)/?$ index.html [L]
 </IfModule>
 
 <IfModule mod_headers.c>
