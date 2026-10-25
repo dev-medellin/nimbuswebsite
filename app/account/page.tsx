@@ -66,9 +66,9 @@ export default function AccountPage() {
 
   if (!account) return <SiteShell><PageIntro eyebrow="Player dashboard" title="Loading account panel..." /></SiteShell>;
 
-  const field = "mt-2 w-full border-2 border-[#b28a4e] bg-[#fff8e6] px-4 py-3 text-[#263652] outline-none focus:border-[#8a342e]";
+  const field = "account-field";
   return <SiteShell>
-    <div className="account-page events-page">
+    <div className="account-page nimbus-account-page">
       <PageIntro eyebrow="Player dashboard" title={`Welcome back, ${account.name || account.username || "adventurer"}.`} />
       <main className="account-content">
         <div className="account-heading"><p>ACCOUNT COMMAND CENTER</p><h2>Your realm profile</h2><span>Manage your identity, character details, and security.</span></div>

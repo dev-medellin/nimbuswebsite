@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Navigation from "../components/Navigation";
 import GameplayVisionSection from "../components/GameplayVisionSection";
 import ServerStatus from "../components/ServerStatus";
+import HomePageTemplate from "../components/HomePageTemplate";
 
 const news = [
   ["MAY 02, 2026", "Event times", "The complete daily event schedule is now available. Gather your guild and prepare for war."],
@@ -21,7 +22,7 @@ function getEuropeClockParts() {
   return [get("hour"), get("minute"), get("second"), 0];
 }
 
-export default function HomePage() {
+function LegacyHomePage() {
   const [launchCountdown, setLaunchCountdown] = useState([0, 0, 0, 0]);
 
   useEffect(() => { setLaunchCountdown(getEuropeClockParts()); const timer = window.setInterval(() => setLaunchCountdown(getEuropeClockParts()), 1000); return () => window.clearInterval(timer); }, []);
@@ -68,3 +69,5 @@ export default function HomePage() {
     </MotionConfig>
   );
 }
+
+export default HomePageTemplate;

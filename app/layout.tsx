@@ -2,19 +2,20 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import "../styles.css";
+import "../classic-pvp.css";
 import MaintenancePage from "../components/MaintenancePage";
 
 export const metadata: Metadata = {
-  title: "Nimbus Conquer | Earn Your Legend",
-  description: "Nimbus Conquer — the classic journey returns.",
+  title: "Nimbus Conquer | Classic PvP Realm",
+  description: "Nimbus Conquer — a classic PvP realm built around skill, rivalry, and earned progression.",
   icons: {
     icon: "/assets/nimbus-favicon.png",
     shortcut: "/assets/nimbus-favicon.png",
     apple: "/assets/nimbus-favicon.png",
   },
   openGraph: {
-    title: "Nimbus Conquer | Earn Your Legend",
-    description: "A true old-school MMORPG experience for European adventurers.",
+    title: "Nimbus Conquer | Classic PvP Realm",
+    description: "Enter a classic PvP realm of guild wars, city battles, tournaments, and earned progression.",
     type: "website",
   },
 };
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   if (maintenanceEnabled) {
     return (
       <html lang="en">
-        <body>
+        <body className="classic-pvp-site">
           <MaintenancePage />
         </body>
       </html>
@@ -57,7 +58,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <html lang="en">
-      <body>
+      <body className="classic-pvp-site">
         <Script src="/maintenance-status.js" strategy="beforeInteractive" />
         <Script id="maintenance-redirect" strategy="beforeInteractive">
           {redirectScript}
